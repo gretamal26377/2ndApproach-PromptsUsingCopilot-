@@ -10,6 +10,7 @@ services:
       - ./backend:/app
     depends_on:
       - database
+    command: ["./wait-for-it.sh", "database", "3306", "--", "python", "main.py"]  
 
   frontend:
     build: ./frontend
