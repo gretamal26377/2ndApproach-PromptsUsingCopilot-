@@ -7,7 +7,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./backend:/app
+      - ./backend:/backend
     depends_on:
       - database
     command: ["./wait-for-it.sh", "database", "3306", "--", "python", "main.py"]  
@@ -17,7 +17,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./frontend:/app
+      - ./frontend:/frontend
 
   database:
     build: ./database
